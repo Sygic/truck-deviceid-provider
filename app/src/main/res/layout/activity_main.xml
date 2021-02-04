@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btnGetId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Get Device ID"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteY="7dp"
+        />
+
+    <TextView
+        android:id="@+id/textId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnGetId"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="62dp" />
+
+
+    <View
+        android:id="@+id/splitter"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#55000000"
+        android:layout_margin="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textId"
+        />
+
+
+    <Button
+        android:id="@+id/btnGenerateId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Random ID"
+        android:layout_margin="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splitter"
+        tools:layout_editor_absoluteY="7dp"
+        />
+
+    <EditText
+        android:id="@+id/editId"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnGenerateId"
+        app:layout_constraintTop_toBottomOf="@+id/splitter"
+        />
+
+    <Button
+        android:id="@+id/btnSetId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set new alternative ID"
+        android:layout_margin="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editId"
+        tools:layout_editor_absoluteY="7dp"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
