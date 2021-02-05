@@ -47,8 +47,10 @@ class MainActivity : AppCompatActivity() {
 
     /** Returns Sygic device ID or null if device ID can't be read. */
     private fun getSygicId(): String? {
-        val cursor = contentResolver.query(sygicProviderUri, arrayOf(KEY_ID), null, null, null) ?: return null
-        return if(cursor.moveToFirst()) cursor.getStringOrNull(0) else null
+        contentResolver.query(sygicProviderUri, arrayOf(KEY_ID), null, null, null)?.use {
+            return if(it.moveToFirst()) it.getStringOrNull(0) else null
+        }
+        return null
     }
 
     /** Pushes new alternative ID to Sygic app. Returns true if success. */
