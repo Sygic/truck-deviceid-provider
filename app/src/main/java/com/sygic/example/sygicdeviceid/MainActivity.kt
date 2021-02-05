@@ -16,6 +16,7 @@ private const val KEY_ID = "id"
 class MainActivity : AppCompatActivity() {
 
     // use "content://com.sygic.fleet.provider/id" for Sygic Professional navigation
+    // use "content://com.sygic.truck.provider/id" for Sygic Truck navigation
     private val sygicProviderUri = Uri.parse("content://com.sygic.truck.provider/id")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,11 +45,13 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /** Returns Sygic device ID or null if device ID can't be read. */
     private fun getSygicId(): String? {
         val cursor = contentResolver.query(sygicProviderUri, arrayOf(KEY_ID), null, null, null) ?: return null
         return if(cursor.moveToFirst()) cursor.getStringOrNull(0) else null
     }
 
+    /** Pushes new alternative ID to Sygic app. Returns true if success. */
     private fun setSygicId(id: String): Boolean {
         val contentValues = ContentValues(1).apply {
             put(KEY_ID, id)
